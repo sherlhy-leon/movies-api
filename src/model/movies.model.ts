@@ -1,4 +1,4 @@
-export interface Movie{
+export interface Movie {
     popularity: number;
     vote_count: number;
     video: boolean;
@@ -15,7 +15,7 @@ export interface Movie{
     release_date: Date;
 }
 
-export interface MovieResponse{
+export interface MovieResponse {
     page: number,
     total_results: number,
     total_pages: number,

@@ -8,7 +8,7 @@ const port = process.env.PORT || 3000;
 
 app.use(express.json());
 
-app.get('/movies/populars', async (req: Request, res: Response) => {
+app.get('/movies/popular', async (req: Request, res: Response) => {
     const response = await getPopularsMoviesHandler(req);
     res.header(response.headers).status(response.statusCode).json(response.body);
 });
