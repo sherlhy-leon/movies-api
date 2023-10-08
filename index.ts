@@ -1,12 +1,15 @@
-import express from 'express';
+import express, { Request, Response } from 'express';
+import { getPopularsMoviesHandler } from './src/controllers/movies.controller';
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.json());
 
-// Define a simple route
-app.get('/', (req, res) => res.send("Hello, World!"));
+app.get('/movies/populars', async (req: Request, res: Response) => {
+    const response = await getPopularsMoviesHandler(req);
+    res.header(response.headers).status(response.statusCode).json(response.body);
+});
 
 // Start the server
 app.listen(port, () => {
