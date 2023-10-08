@@ -63,7 +63,6 @@ export function apiSuccess<T>(
 }
 
 /**
- * Use this one if you want to have full control yourself.
  *
  * @param statusCode
  * @param _event the request event sent into the lambda
@@ -88,7 +87,7 @@ export function apiResponse(
 }
 
 
-export abstract class DsError {
+export abstract class CustomError {
     public readonly success = false;
     public abstract readonly reason: string;
 }
@@ -97,18 +96,18 @@ export abstract class ValidationError {
     public readonly reason = 'Validation Error';
 }
 
-export class UnauthorizedError extends DsError {
+export class UnauthorizedError extends CustomError {
     public readonly reason = 'Unauthorized';
 }
 
-export class ForbiddenError extends DsError {
+export class ForbiddenError extends CustomError {
     public readonly reason = 'Forbidden Access';
     constructor(public additionalInfo?: string) {
         super();
     }
 }
 
-export class NotFoundError extends DsError {
+export class NotFoundError extends CustomError {
     public reason = 'Resource Not Found';
     constructor(public message?: string) {
         super();
@@ -116,7 +115,7 @@ export class NotFoundError extends DsError {
     }
 }
 
-export class InvalidJsonBodyError extends DsError {
+export class InvalidJsonBodyError extends CustomError {
     public reason = 'Invalid Json Body';
 
     constructor() {
