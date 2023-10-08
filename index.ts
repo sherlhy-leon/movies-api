@@ -25,6 +25,9 @@ app.get('/movies/:movie_id/credits', async (req: Request, res: Response) => {
 
 // Start the server
 app.listen(port, () => {
+    console.log("GET /movies/popular");
+    console.log("GET /movies/now_playing");
+    console.log("GET /movies/:movie_id/credits");
     console.log(`Server is running on port ${port}`);
 });
 

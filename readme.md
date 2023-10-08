@@ -39,3 +39,7 @@ Luego hay que tener en cuenta que este es un procesamiento pesado, que dada la n
 Para realizar la autenticación, habría que establecer una capa de datos donde las credenciales del usuario sean almacenadas de forma encriptada. Luego, se desarrollaría un módulo de autenticación que, dadas las credenciales del usuario, genere un token JWT que se utilizará en la UI para que el usuario pueda mantener la sesión. Posteriormente, este token será enviado como método de autenticación en cada solicitud desde el frontend. El token será decodificado, permitiendo obtener información del usuario en cuestión, así como verificar si el token ha expirado y si es correcto o no.
 
 En cuanto a la UI, el token es preferiblemente almacenado en memoria, y mediante el uso de HttpInterceptor, se envía en los encabezados de las solicitudes para llevar a cabo la autenticación. Además, con el uso de un servicio compartido, se podrá identificar cuando el usuario está o no logueado, permitiendo crear una protección de rutas adecuada para evitar accesos no autorizados.
+
+
+## Como ejecutar
+`npm run start`
