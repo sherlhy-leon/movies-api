@@ -1,8 +1,8 @@
 import { Movie, MovieResponse } from "../model/movies.model";
 import axios from 'axios';
 
-const API_KEY = "";
-const BASE_URI = "";
+const API_KEY = process.env.API_KEY ?? "";
+const BASE_URI = process.env.MOVIE_BASE_URI ?? "";
 
 export const getPopularsMovies = async (): Promise<Movie[]> => {
     const url = new URL("popular", BASE_URI);

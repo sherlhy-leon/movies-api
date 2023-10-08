@@ -1,3 +1,5 @@
+import dotenv from "dotenv";
+dotenv.config();
 import express, { Request, Response } from 'express';
 import { getPopularsMoviesHandler } from './src/controllers/movies.controller';
 
